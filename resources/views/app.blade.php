@@ -1,43 +1,36 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        {{-- Inline script to detect system dark mode preference and apply it immediately --}}
-        <script>
-            (function() {
-                const appearance = '{{ $appearance ?? "system" }}';
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="thumbnail" content="assets/images/eduna-page-thumbnail.html" />
+        <meta name="description" content="Eduna - Online Education Courses HTML5 Template" />
+        <meta name="keywords" content="Online Education Courses HTML5 Template" />
+        <meta name="author" content="BizanTheme" />
 
-                if (appearance === 'system') {
-                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        <title inertia>{{ config('app.name', 'Laravel') }}</title inertia>
+        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.svg') }}" />
 
-                    if (prefersDark) {
-                        document.documentElement.classList.add('dark');
-                    }
-                }
-            })();
-        </script>
-
-        {{-- Inline style to set the HTML background color based on our theme in app.css --}}
-        <style>
-            html {
-                background-color: oklch(1 0 0);
-            }
-
-            html.dark {
-                background-color: oklch(0.145 0 0);
-            }
-        </style>
-
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
-
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/css/bootstrap.min.css') }}" />
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/css/animate.min.css') }}" />
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/css/owl.carousel.min.css') }}" />
+        <!-- Swiper Slider CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/css/swiper-bundle.min.css') }}" />
+        <!-- Maginific Popup CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/css/maginific-popup.min.css') }}" />
+        <!-- Nice Select CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/css/nice-select.min.css') }}" />
+        <!-- Icofont -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/css/icofont.css') }}" />
+        <!-- Uicons -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/css/uicons.css') }}" />
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="{{ asset('style.css') }}" />
 
         @routes
         @viteReactRefresh
